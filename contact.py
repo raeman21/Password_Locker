@@ -18,3 +18,9 @@ class Contact:
         '''
 
         Contact.contact_list.append(self)
+
+    def delete_contact(self):
+        '''
+        delete_contact method deletesr a saved contact from the contact_list
+        '''
+        Contact.contact_list.remove(self)
