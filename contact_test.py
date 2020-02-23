@@ -78,6 +78,19 @@ class TestContact(unittest.TestCase):
 
         self.assertEqual(found_contact.email, test_contact.email)
 
+    def test_contact_exists(self):
+        '''
+        test to check if we can return a Boolean if we cannot find the contact.
+        '''
+
+        self.new_contact.save_contact()
+        test_contact = Contact("Test", "User", "3983739873", "test@mail.com")
+        test_contact.save_contact()
+
+        contact_exists = Contact.contact_exists("3983739873")
+
+        self.assertTrue(contact_exists)
+
 
 if __name__ == '__main__':
     unittest.main()
