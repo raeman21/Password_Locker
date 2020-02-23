@@ -58,6 +58,7 @@ class TestContact(unittest.TestCase):
         test_delete_contact to test if we can remove a contact from our contact list
         '''
         self.new_contact.save_contact()
+        test_contact = Contact("Test", "User", "3983739873", "test@mail.com")
         test_contact.save_contact()
 
         self.new_contact.delete_contact()
