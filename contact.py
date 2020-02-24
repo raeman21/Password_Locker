@@ -52,3 +52,10 @@ class Contact:
             if contact.phone_number == number:
                 return True
         return False
+
+    @classmethod
+    def display_contacts(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.contact_list
