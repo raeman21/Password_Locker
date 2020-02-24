@@ -1,3 +1,4 @@
+import pyperclip
 import unittest
 from contact import Contact
 
@@ -49,7 +50,8 @@ class TestContact(unittest.TestCase):
         objects to our contact_list
         '''
         self.new_contact.save_contact()
-        test_contact = Contact("Test", "User", "3983739873", "test@mail.com")
+        test_contact = Contact(
+            "Irene", "Adler", "98378973", "iadler@gmail.com")
         test_contact.save_contact()
         self.assertEqual(len(Contact.contact_list), 2)
 
@@ -58,7 +60,8 @@ class TestContact(unittest.TestCase):
         test_delete_contact to test if we can remove a contact from our contact list
         '''
         self.new_contact.save_contact()
-        test_contact = Contact("Test", "User", "3983739873", "test@mail.com")
+        test_contact = Contact(
+            "Irene", "Adler", "98378973", "iadler@gmail.com")
         test_contact.save_contact()
 
         self.new_contact.delete_contact()
@@ -71,10 +74,11 @@ class TestContact(unittest.TestCase):
         '''
 
         self.new_contact.save_contact()
-        test_contact = Contact("Test", "User", "3983739873", "test@mail.com")
+        test_contact = Contact(
+            "Irene", "Adler", "98378973", "iadler@gmail.com")
         test_contact.save_contact()
 
-        found_contact = Contact.find_by_number("3983739873")
+        found_contact = Contact.find_by_number("98378973")
 
         self.assertEqual(found_contact.email, test_contact.email)
 
@@ -84,10 +88,11 @@ class TestContact(unittest.TestCase):
         '''
 
         self.new_contact.save_contact()
-        test_contact = Contact("Test", "User", "3983739873", "test@mail.com")
+        test_contact = Contact(
+            "Irene", "Adler", "98378973", "iadler@gmail.com")
         test_contact.save_contact()
 
-        contact_exists = Contact.contact_exists("3983739873")
+        contact_exists = Contact.contact_exists("98378973")
 
         self.assertTrue(contact_exists)
 
@@ -97,6 +102,16 @@ class TestContact(unittest.TestCase):
         '''
 
         self.assertEqual(Contact.display_contacts(), Contact.contact_list)
+
+    # def test_copy_email(self):
+    #     '''
+    #     Test to confirm thet we are copying the email address from a found contact
+    #     '''
+
+    #     self.new_contact.save_contact()
+    #     Contact.copy_email("98378973")
+
+    #     self.assertEqual(self.new_contact.email, pyperclip.paste())
 
 
 if __name__ == '__main__':
