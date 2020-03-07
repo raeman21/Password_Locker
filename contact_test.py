@@ -17,8 +17,7 @@ class TestContact(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_contact = Contact(
-            "Irene", "Adler", "98378973", "iadler@gmail.com")  # create contact object
+        self.new_contact = Contact("Irene", "Adler", "98378973", "iadler@gmail.com")
 
     def test_init(self):
         '''
@@ -103,15 +102,15 @@ class TestContact(unittest.TestCase):
 
         self.assertEqual(Contact.display_contacts(), Contact.contact_list)
 
-    # def test_copy_email(self):
-    #     '''
-    #     Test to confirm thet we are copying the email address from a found contact
-    #     '''
+    def test_copy_email(self):
+        '''
+        Test to confirm thet we are copying the email address from a found contact
+        '''
 
-    #     self.new_contact.save_contact()
-    #     Contact.copy_email("98378973")
+        self.new_contact.save_contact()
+        Contact.copy_email("98378973")
 
-    #     self.assertEqual(self.new_contact.email, pyperclip.paste())
+        self.assertEqual(self.new_contact.email,pyperclip.paste())
 
 
 if __name__ == '__main__':
