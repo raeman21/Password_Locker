@@ -5,20 +5,20 @@ def create_contact(fname,lname,phone,email):
     '''
     Function to create a new contact
     '''
-    new_contact = Contact(fname,lname,pphone,email)
+    new_contact = Contact(fname,lname,phone,email)
     return new_contact
 
 def save_contacts(contact):
     '''
     Function to save contacts
     '''
-    contact.save_contact()
+    return contact.save_contact()
 
 def del_contact(contact):
     '''
     Function to delete a contact
     '''
-    contact.delete_contact()
+    return contact.delete_contact()
 
 def find_contact(number):
     '''
@@ -52,7 +52,7 @@ def main():
     print('\n')
 
     while True:
-        print("Use these short codes : cc - create a new contact, dc - display contacts, fc - find a contact, ex - exit the contact list")
+        print("Use these short codes : cc - create a new contact, dc - display contacts, fc - find a contact, ex - exit the contact list, lc - delete contact, cp - copy contact email ")
 
         short_code = input().lower()
         
@@ -68,6 +68,9 @@ def main():
 
             print("Phone number ...")
             p_number = input()
+
+            print("Email address ...")
+            e_address = input()
 
             save_contacts(create_contact(f_name,l_name,p_number,e_address))
             print ('\n')
@@ -98,7 +101,7 @@ def main():
                 print (f"{search_contact.first_name} {search_contact.last_name}")
                 print ('-' * 20)
                 print (f"Phone number ....... {search_contact.phone_number}")
-                print (f"Email adress ....... {search_contact.email}")
+                print (f"Email address ....... {search_contact.email}")
             
             else:
                 print ("That contact does not exist")
@@ -106,3 +109,22 @@ def main():
         elif short_code == "ex":
 
             print ("I really didn't get that. Please use the short codes")
+
+        # elif short_code == "lc":
+        #     print ("Which contact would you like to delete?")
+
+        #     for contact in display_contacts():
+        #             print(f"{contact.first_name} {contact.phone_number} {contact.email}")
+        #             print ('\n')
+
+        #             delete_contact = input()
+
+        #             if input(f_name) == contact.f_name:
+        #                 print (f"Old contact {f_name.delete_contact} {l_name.delete_contact} deleted")
+
+        #             else:
+        #                 print ("That contact does not exist")
+
+if __name__ == '__main__':
+
+    main()
